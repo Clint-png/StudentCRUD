@@ -59,11 +59,11 @@ namespace StudentCRUDapplication
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textEdit1.Text) ||
-               string.IsNullOrWhiteSpace(textEdit2.Text) ||
-               string.IsNullOrWhiteSpace(textEdit3.Text) ||
-               string.IsNullOrWhiteSpace(textEdit4.Text) ||
-               string.IsNullOrWhiteSpace(textEdit5.Text))
+            if (string.IsNullOrWhiteSpace(TeFullName.Text) ||
+               string.IsNullOrWhiteSpace(TeAge.Text) ||
+               string.IsNullOrWhiteSpace(TeCourse.Text) ||
+               string.IsNullOrWhiteSpace(TeDepartment.Text) ||
+               string.IsNullOrWhiteSpace(TeYearLevel.Text))
             {
                 MessageBox.Show("Please fill in all fields!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -71,11 +71,11 @@ namespace StudentCRUDapplication
 
             Student newStudent = new Student
             {
-                FullName = textEdit1.Text,
+                FullName = TeFullName.Text,
                 Age = int.TryParse(TeAge.Text, out int age) ? age : 0,
-                Course = textEdit3.Text,
-                Department = textEdit4.Text,
-                YearLevel = int.TryParse(textEdit5.Text, out int year) ? year : 0
+                Course = TeCourse.Text,
+                Department = TeDepartment.Text,
+                YearLevel = int.TryParse(TeYearLevel.Text, out int year) ? year : 0
             };
 
             studentList.Add(newStudent);
