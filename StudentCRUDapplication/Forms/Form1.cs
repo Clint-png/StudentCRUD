@@ -79,7 +79,7 @@ namespace StudentCRUDapplication
             };
 
             studentList.Add(newStudent);
-            GridControlStudents.RefreshDataSource(); // Update the Grid
+            GridControlStudents.RefreshDataSource(); // Update sa Grid
 
             ClearTextFields();
         }
