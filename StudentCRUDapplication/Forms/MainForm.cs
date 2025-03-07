@@ -13,20 +13,15 @@ namespace StudentCRUDapplication
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
-        BindingList<Student> studentList = new BindingList<Student>();
-        BindingList<Student> tempStudentList = new BindingList<Student>();
+        List<Student> studentList = new List<Student>();
+        List<Student> tempStudentList = new List<Student>();
+
         public MainForm()
         {
             InitializeComponent();
             GridControlStudents.DataSource = studentList;
             GridControlListView.DataSource = tempStudentList;
         }
-
-        private void BGPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void GridControlStudents_Click(object sender, EventArgs e)
         {
             if (GridControlStudents.MainView is GridView gridView)
@@ -35,6 +30,7 @@ namespace StudentCRUDapplication
                 if (selectedRow >= 0)
                 {
                     Student selectedStudent = (Student)gridView.GetRow(selectedRow);
+
                     TeFullName.Text = selectedStudent.FullName;
                     TeAge.Text = selectedStudent.Age.ToString();
                     TeCourse.Text = selectedStudent.Course;
@@ -43,7 +39,6 @@ namespace StudentCRUDapplication
                 }
             }
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TeFullName.Text) ||
@@ -55,8 +50,8 @@ namespace StudentCRUDapplication
                 MessageBox.Show("Please fill in all fields!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            Student newStudent = new Student
+            
+            Student newStudent = new Student //Pag naay value ang textedit kay ma add dayun mo refresh
             {
                 FullName = TeFullName.Text,
                 Age = int.TryParse(TeAge.Text, out int age) ? age : 0,
@@ -66,10 +61,10 @@ namespace StudentCRUDapplication
             };
 
             tempStudentList.Add(newStudent);
-            GridControlListView.RefreshDataSource(); // Refresh Sa Temporary GridControl
+            GridControlListView.RefreshDataSource();
+
             ClearTextFields();
         }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (GridControlStudents.MainView is GridView gridView)
@@ -79,13 +74,16 @@ namespace StudentCRUDapplication
                 {
                     Student selectedStudent = (Student)gridView.GetRow(selectedRow);
 
+                    // Update student details with values from textedit
                     selectedStudent.FullName = TeFullName.Text;
                     selectedStudent.Age = int.TryParse(TeAge.Text, out int age) ? age : 0;
                     selectedStudent.Course = TeCourse.Text;
                     selectedStudent.Department = TeDepartment.Text;
                     selectedStudent.YearLevel = int.TryParse(TeYearLevel.Text, out int year) ? year : 0;
 
-                    GridControlStudents.RefreshDataSource(); // Refresh Sa GridControl
+                    // Refresh GridControl to para makita ang data
+                    GridControlStudents.RefreshDataSource();
+
                     MessageBox.Show("Record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearTextFields();
                 }
@@ -95,7 +93,6 @@ namespace StudentCRUDapplication
                 }
             }
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (GridControlStudents.MainView is GridView gridView)
@@ -105,13 +102,15 @@ namespace StudentCRUDapplication
                 {
                     Student selectedStudent = (Student)gridView.GetRow(selectedRow);
 
+                    // Confirmation before delete
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?",
                         "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (dialogResult == DialogResult.Yes)
                     {
                         studentList.Remove(selectedStudent);
-                        GridControlStudents.RefreshDataSource(); // Refresh Sa GridControl
+                        GridControlStudents.RefreshDataSource(); // Refresh GridControl
+
                         MessageBox.Show("Record deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearTextFields();
                     }
@@ -122,7 +121,6 @@ namespace StudentCRUDapplication
                 }
             }
         }
-
         private void ClearTextFields()
         {
             TeFullName.Text = "";
@@ -131,23 +129,16 @@ namespace StudentCRUDapplication
             TeDepartment.Text = "";
             TeYearLevel.Text = "";
         }
-
-        private void GridControlListView_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLoadData_Click(object sender, EventArgs e)
         {
             foreach (var student in tempStudentList)
             {
                 studentList.Add(student);
             }
-
-            tempStudentList.Clear(); // Clear temporary storage
-            GridControlStudents.RefreshDataSource(); // Refresh Sa Main GridControl
-            GridControlListView.RefreshDataSource(); // Refresh Sa Temporary GridControl
-
+            
+            tempStudentList.Clear(); // Clear the temporary storage and refresh the UI
+            GridControlStudents.RefreshDataSource(); // Refresh main GridControl
+            GridControlListView.RefreshDataSource(); // Refresh temporary GridControl
         }
     }
 }

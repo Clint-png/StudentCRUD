@@ -93,9 +93,8 @@
             this.BGPanel.Location = new System.Drawing.Point(0, 0);
             this.BGPanel.Margin = new System.Windows.Forms.Padding(4);
             this.BGPanel.Name = "BGPanel";
-            this.BGPanel.Size = new System.Drawing.Size(1080, 823);
+            this.BGPanel.Size = new System.Drawing.Size(1091, 861);
             this.BGPanel.TabIndex = 0;
-            this.BGPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BGPanel_Paint);
             // 
             // GridControlListView
             // 
@@ -104,11 +103,10 @@
             this.GridControlListView.MainView = this.gridView2;
             this.GridControlListView.Margin = new System.Windows.Forms.Padding(4);
             this.GridControlListView.Name = "GridControlListView";
-            this.GridControlListView.Size = new System.Drawing.Size(1007, 164);
+            this.GridControlListView.Size = new System.Drawing.Size(1007, 191);
             this.GridControlListView.TabIndex = 15;
             this.GridControlListView.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
-            this.GridControlListView.Click += new System.EventHandler(this.GridControlListView_Click);
             // 
             // gridView2
             // 
@@ -136,9 +134,9 @@
             this.gridColumn5});
             this.gridView2.DetailHeight = 458;
             this.gridView2.GridControl = this.GridControlListView;
+            this.gridView2.GroupPanelText = "Temporary Data";
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsEditForm.PopupEditFormWidth = 933;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn1
             // 
@@ -262,7 +260,7 @@
             // GridControlStudents
             // 
             this.GridControlStudents.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.GridControlStudents.Location = new System.Drawing.Point(42, 347);
+            this.GridControlStudents.Location = new System.Drawing.Point(42, 391);
             this.GridControlStudents.MainView = this.gridView1;
             this.GridControlStudents.Margin = new System.Windows.Forms.Padding(4);
             this.GridControlStudents.Name = "GridControlStudents";
@@ -276,6 +274,8 @@
             // 
             this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseTextOptions = true;
             this.gridView1.Appearance.ColumnFilterButtonActive.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridView1.Appearance.EvenRow.Options.UseTextOptions = true;
+            this.gridView1.Appearance.EvenRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridView1.Appearance.FocusedCell.Options.UseTextOptions = true;
             this.gridView1.Appearance.FocusedCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridView1.Appearance.FocusedRow.Options.UseTextOptions = true;
@@ -288,6 +288,12 @@
             this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.Appearance.HideSelectionRow.Options.UseTextOptions = true;
             this.gridView1.Appearance.HideSelectionRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridView1.Appearance.HorzLine.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HorzLine.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridView1.Appearance.OddRow.Options.UseTextOptions = true;
+            this.gridView1.Appearance.OddRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridView1.Appearance.Row.Options.UseTextOptions = true;
+            this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridView1.Appearance.SelectedRow.Options.UseTextOptions = true;
             this.gridView1.Appearance.SelectedRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -298,9 +304,9 @@
             this.YearLevel});
             this.gridView1.DetailHeight = 458;
             this.gridView1.GridControl = this.GridControlStudents;
+            this.gridView1.GroupPanelText = "Permanent Data stored in Database";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 933;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // FullName
             // 
@@ -471,7 +477,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 823);
+            this.ClientSize = new System.Drawing.Size(1091, 861);
             this.Controls.Add(this.BGPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("MainForm.IconOptions.SvgImage")));
