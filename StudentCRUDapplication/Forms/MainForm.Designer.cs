@@ -39,7 +39,7 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnLoadData = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.GridControlStudents = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -76,7 +76,7 @@
             this.BGPanel.Controls.Add(this.GridControlListView);
             this.BGPanel.Controls.Add(this.btnLoadData);
             this.BGPanel.Controls.Add(this.btnDelete);
-            this.BGPanel.Controls.Add(this.btnEdit);
+            this.BGPanel.Controls.Add(this.btnUpdate);
             this.BGPanel.Controls.Add(this.btnAdd);
             this.BGPanel.Controls.Add(this.GridControlStudents);
             this.BGPanel.Controls.Add(this.LabelYearLevel);
@@ -136,6 +136,7 @@
             this.gridView2.GridControl = this.GridControlListView;
             this.gridView2.GroupPanelText = "Temporary Data";
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.True;
             this.gridView2.OptionsEditForm.PopupEditFormWidth = 933;
             // 
             // gridColumn1
@@ -216,10 +217,10 @@
             // btnLoadData
             // 
             this.btnLoadData.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLoadData.ImageOptions.SvgImage")));
-            this.btnLoadData.Location = new System.Drawing.Point(438, 119);
+            this.btnLoadData.Location = new System.Drawing.Point(434, 119);
             this.btnLoadData.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadData.Name = "btnLoadData";
-            this.btnLoadData.Size = new System.Drawing.Size(92, 48);
+            this.btnLoadData.Size = new System.Drawing.Size(96, 48);
             this.btnLoadData.TabIndex = 14;
             this.btnLoadData.Text = "LOAD";
             this.btnLoadData.Click += new System.EventHandler(this.btnLoadData_Click);
@@ -227,29 +228,29 @@
             // btnDelete
             // 
             this.btnDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDelete.ImageOptions.SvgImage")));
-            this.btnDelete.Location = new System.Drawing.Point(716, 119);
+            this.btnDelete.Location = new System.Drawing.Point(735, 119);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(92, 48);
+            this.btnDelete.Size = new System.Drawing.Size(108, 48);
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnEdit
+            // btnUpdate
             // 
-            this.btnEdit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEdit.ImageOptions.SvgImage")));
-            this.btnEdit.Location = new System.Drawing.Point(580, 119);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(92, 48);
-            this.btnEdit.TabIndex = 12;
-            this.btnEdit.Text = "EDIT";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnUpdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUpdate.ImageOptions.SvgImage")));
+            this.btnUpdate.Location = new System.Drawing.Point(580, 119);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(106, 48);
+            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.Text = "UPDATE";
+            this.btnUpdate.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAdd.ImageOptions.SvgImage")));
-            this.btnAdd.Location = new System.Drawing.Point(302, 119);
+            this.btnAdd.Location = new System.Drawing.Point(292, 119);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 48);
@@ -486,7 +487,7 @@
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Student";
+            this.Text = "Students";
             this.BGPanel.ResumeLayout(false);
             this.BGPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridControlListView)).EndInit();
@@ -523,7 +524,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn Department;
         private DevExpress.XtraGrid.Columns.GridColumn YearLevel;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
-        private DevExpress.XtraEditors.SimpleButton btnEdit;
+        private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.SimpleButton btnLoadData;
         private DevExpress.XtraGrid.GridControl GridControlListView;
